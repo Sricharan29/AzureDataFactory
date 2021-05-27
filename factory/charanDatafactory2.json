@@ -1,0 +1,9 @@
+{
+	"name": "charanDatafactory2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c63fec16-81bb-45c4-9dea-85fa07f19cec",
+		"tenantId": "f5764222-0eef-4411-9ac5-fc4041635863"
+	}
+}
