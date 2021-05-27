@@ -1,0 +1,27 @@
+create table data_source_table
+ (
+ 	PersonID int,
+ 	Name varchar(255),
+ 	LastModifytime datetime DEFAULT CURRENT_TIMESTAMP
+ );
+
+INSERT INTO data_source_table
+ (PersonID, Name)
+ VALUES
+ (1, 'aaaa'),
+ (2, 'bbbb'),
+ (3, 'cccc'),
+ (4, 'dddd'),
+ (5, 'eeee');
+
+create table watermarktable
+(
+
+TableName varchar(255),
+WatermarkValue datetime default current_timestamp,
+);
+
+INSERT INTO watermarktable(TableName)
+VALUES ('data_source_table') 
+
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50) AS BEGIN UPDATE watermarktable SET [WatermarkValue] = @LastModifiedtime WHERE [TableName] = @TableName END
